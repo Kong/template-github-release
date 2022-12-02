@@ -6,7 +6,6 @@ on:  # yamllint disable-line rule:truthy
   push:
     branches:
     - main
-    - feat/github-releases
 
 jobs:
   release:
