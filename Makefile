@@ -8,7 +8,7 @@ DOCKER_NAME ?= $(DOCKER_REGISTRY)/$(DOCKER_IMAGE_NAME):$(DOCKER_IMAGE_TAG)
 DOCKER_RESULT ?= --load
 
 clean:
-	rm -rf *.tar.gz
+	rm -rf package
 	docker rmi $(DOCKER_NAME)
 
 docker:

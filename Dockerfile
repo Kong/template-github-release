@@ -17,11 +17,7 @@ COPY . /src
 RUN /src/build.sh && /src/test.sh
 
 
-# COPY --from doesn't support args so use an intermediary image
-FROM $DOCKER_REGISTRY/$DOCKER_IMAGE_NAME:build-$ARCHITECTURE-$OSTYPE as build-result
-
-
 # Copy the build result to scratch so we can export the result
 FROM scratch as package
 
-COPY --from=build-result /tmp/build /
+COPY --from=build /tmp/build /
