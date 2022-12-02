@@ -1,11 +1,5 @@
 ---
 additional:
-- anchore-helm
-- docker-fpm
-- lacework-manifest
-- kong-build-tools-base-images
-- kong-internal-unstable-helm
-
 
 files:
 - '!README.md'
