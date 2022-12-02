@@ -1,5 +1,6 @@
 ---
 additional:
+- kong-openssl
 
 files:
 - '!README.md'
