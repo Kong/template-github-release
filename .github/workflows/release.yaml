@@ -61,7 +61,8 @@ jobs:
         tags: |
           type=sha
           type=ref,event=branch
-          type=semver,value=${{ needs.release.outputs.release-git-tag }}
+          type=semver,pattern={{version}},value=${{ needs.release.outputs.release-git-tag }}
+          type=semver,pattern={{major}},value=${{ needs.release.outputs.release-git-tag }}
     - name: Retag and Push
       if: ${{ needs.release.outputs.published == 'true' }}
       run: |
