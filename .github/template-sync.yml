@@ -10,3 +10,9 @@ files:
 - '!.github/PULL_REQUEST_TEMPLATE.md'
 - '!**/CODEOWNERS'
 - '!.yamllint'
+- '!Dockerfile'
+- '!build.sh'
+- '!test.sh'
+- .github/workflows/release.yaml
+- .releaserc
+- Makefile
