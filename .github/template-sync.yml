@@ -1,5 +1,6 @@
 ---
 additional:
+- kong-openssl
 
 files:
 - '!README.md'
@@ -13,6 +14,6 @@ files:
 - '!Dockerfile'
 - '!build.sh'
 - '!test.sh'
-- .github/workflows/release.yaml
-- .releaserc
-- Makefile
+- '!.github/workflows/release.yaml'
+- '!.releaserc'
+- '!Makefile'
