@@ -94,6 +94,13 @@ jobs:
         ostype: [linux-gnu, linux-musl]
     runs-on: ubuntu-latest
     steps:
+    - name: Log in to the Container registry
+      if: ${{ needs.release.outputs.published == 'true' }}
+      uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     - name: Combine per architecture images into a single multi-arch manifest
       run: |
         docker pull ghcr.io/kong/template-github-release:${{ needs.release.outputs.release-git-tag }}-aarch64-${{ matrix.ostype }}
