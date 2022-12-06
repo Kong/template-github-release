@@ -84,3 +84,21 @@ jobs:
       with:
         tag_name: ${{ needs.release.outputs.release-git-tag }}
         files: ${{ matrix.architecture }}-${{ matrix.ostype }}.tar.gz
+
+  multi-arch:
+    needs: [release, artifacts]
+    name: Create Release Artifacts
+    if: ${{ needs.release.outputs.published == 'true' }}
+    strategy:
+      matrix:
+        ostype: [linux-gnu, linux-musl]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Combine per architecture images into a single multi-arch manifest
+      run: |
+        docker pull ghcr.io/kong/template-github-release:${{ needs.release.outputs.release-git-tag }}-aarch64-${{ matrix.ostype }}
+        docker pull ghcr.io/kong/template-github-release:${{ needs.release.outputs.release-git-tag }}-x86_64-${{ matrix.ostype }}
+        docker manifest ghcr.io/kong/template-github-release:${{ needs.release.outputs.release-git-tag }}-${{ matrix.ostype }} \
+          ghcr.io/kong/template-github-release:${{ needs.release.outputs.release-git-tag }}-aarch64-${{ matrix.ostype }} \
+          ghcr.io/kong/template-github-release:${{ needs.release.outputs.release-git-tag }}-x86_64-${{ matrix.ostype }}
+        ghcr.io/kong/template-github-release:${{ needs.release.outputs.release-git-tag }}-${{ matrix.ostype }}
