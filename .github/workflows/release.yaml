@@ -98,7 +98,7 @@ jobs:
       run: |
         docker pull ghcr.io/kong/template-github-release:${{ needs.release.outputs.release-git-tag }}-aarch64-${{ matrix.ostype }}
         docker pull ghcr.io/kong/template-github-release:${{ needs.release.outputs.release-git-tag }}-x86_64-${{ matrix.ostype }}
-        docker manifest ghcr.io/kong/template-github-release:${{ needs.release.outputs.release-git-tag }}-${{ matrix.ostype }} \
+        docker manifest create ghcr.io/kong/template-github-release:${{ needs.release.outputs.release-git-tag }}-${{ matrix.ostype }} \
           ghcr.io/kong/template-github-release:${{ needs.release.outputs.release-git-tag }}-aarch64-${{ matrix.ostype }} \
           ghcr.io/kong/template-github-release:${{ needs.release.outputs.release-git-tag }}-x86_64-${{ matrix.ostype }}
         ghcr.io/kong/template-github-release:${{ needs.release.outputs.release-git-tag }}-${{ matrix.ostype }}
