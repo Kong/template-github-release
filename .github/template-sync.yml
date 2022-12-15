@@ -1,7 +1,6 @@
 ---
 additional:
-- template-docker
-- template-github-release
+- kong-openssl
 
 files:
 - '!README.md'
@@ -13,3 +12,5 @@ files:
 - '!.github/dependabot.yml'
 - '!.github/workflows/pre-commit-update.yml'
 - '!.github/settings.yml'
+- '!.github/template-sync.yml'
+- '!Dockerfile'
