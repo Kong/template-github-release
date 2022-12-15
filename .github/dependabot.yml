@@ -1,13 +1,25 @@
 ---
-# File is synced from Kong/template-generic and will be overwritten
 version: 2
 updates:
+- package-ecosystem: pip
+  directory: /
+  schedule:
+    interval: weekly
+
 - package-ecosystem: docker
   directory: /
   schedule:
-    interval: daily
+    interval: weekly
 
 - package-ecosystem: github-actions
   directory: /
+  schedule:
+    interval: weekly
+
+- package-ecosystem: npm
+  directory: /frontend/
+  ignore:
+  - dependency-name: '*'
+    update-types: [version-update:semver-major]
   schedule:
     interval: daily
