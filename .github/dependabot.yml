@@ -4,22 +4,27 @@ updates:
 - package-ecosystem: pip
   directory: /
   schedule:
-    interval: weekly
+    interval: daily
 
 - package-ecosystem: docker
   directory: /
   schedule:
-    interval: weekly
+    interval: daily
 
 - package-ecosystem: github-actions
   directory: /
   schedule:
-    interval: weekly
+    interval: daily
 
 - package-ecosystem: npm
   directory: /frontend/
   ignore:
   - dependency-name: '*'
     update-types: [version-update:semver-major]
+  schedule:
+    interval: daily
+
+- package-ecosystem: gitsubmodule
+  directory: /
   schedule:
     interval: daily
