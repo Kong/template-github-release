@@ -56,7 +56,7 @@ jobs:
     - name: Docker meta
       if: ${{ needs.release.outputs.published == 'true' }}
       id: meta
-      uses: docker/metadata-action@v4
+      uses: docker/metadata-action@v5
       with:
         images: ghcr.io/kong/template-github-release
         sep-tags: ' '
