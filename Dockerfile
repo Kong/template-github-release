@@ -4,10 +4,10 @@ ARG DOCKER_REGISTRY=ghcr.io
 ARG DOCKER_IMAGE_NAME
 
 # List out all image permutations to trick dependabot
-FROM --platform=linux/amd64 kong/kong-build-tools:apk-1.8.3 as x86_64-linux-musl
-FROM --platform=linux/amd64 kong/kong-build-tools:rpm-1.8.3 as x86_64-linux-gnu
-FROM --platform=linux/arm64 kong/kong-build-tools:apk-1.8.3 as aarch64-linux-musl
-FROM --platform=linux/arm64 kong/kong-build-tools:rpm-1.8.3 as aarch64-linux-gnu
+FROM --platform=linux/amd64 kong/kong-build-tools:apk-1.8.6 as x86_64-linux-musl
+FROM --platform=linux/amd64 kong/kong-build-tools:rpm-1.8.6 as x86_64-linux-gnu
+FROM --platform=linux/arm64 kong/kong-build-tools:apk-1.8.6 as aarch64-linux-musl
+FROM --platform=linux/arm64 kong/kong-build-tools:rpm-1.8.6 as aarch64-linux-gnu
 
 
 # Run the build script
